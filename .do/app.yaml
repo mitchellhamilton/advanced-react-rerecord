@@ -12,3 +12,4 @@ services:
     http_port: 8888
     build_command: npm run build
     run_command: npm start
+    region: NYC1

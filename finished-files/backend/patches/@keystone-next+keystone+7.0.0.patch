@@ -1,0 +1,44 @@
+diff --git a/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.dev.js b/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.dev.js
+index 201988b..5a3cb82 100644
+--- a/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.dev.js
++++ b/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.dev.js
+@@ -30,6 +30,7 @@ var sourceMapSupport = require('source-map-support');
+ var cors = require('cors');
+ var apolloServerExpress = require('apollo-server-express');
+ var formatError = require('@keystonejs/keystone/lib/Keystone/format-error');
++var morgan = require('morgan')
+ 
+ function _interopDefault (e) { return e && e.__esModule ? e : { 'default': e }; }
+ 
+@@ -160,6 +161,8 @@ const createExpressServer = async (config, system$1, dev) => {
+ 
+   const server = express__default['default']();
+ 
++  server.use(morgan('combined'))
++
+   if ((_config$server = config.server) !== null && _config$server !== void 0 && _config$server.cors) {
+     // Setting config.server.cors = true will provide backwards compatible defaults
+     // Otherwise, the user can provide their own config object to use
+diff --git a/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.prod.js b/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.prod.js
+index c7f6b37..b2bba80 100644
+--- a/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.prod.js
++++ b/node_modules/@keystone-next/keystone/scripts/dist/keystone.cjs.prod.js
+@@ -30,7 +30,7 @@ var sourceMapSupport = require('source-map-support');
+ var cors = require('cors');
+ var apolloServerExpress = require('apollo-server-express');
+ var formatError = require('@keystonejs/keystone/lib/Keystone/format-error');
+-
++var morgan = require('morgan')
+ function _interopDefault (e) { return e && e.__esModule ? e : { 'default': e }; }
+ 
+ var meow__default = /*#__PURE__*/_interopDefault(meow);
+@@ -160,6 +160,9 @@ const createExpressServer = async (config, system$1, dev) => {
+ 
+   const server = express__default['default']();
+ 
++  server.use(morgan('combined'))
++
++
+   if ((_config$server = config.server) !== null && _config$server !== void 0 && _config$server.cors) {
+     // Setting config.server.cors = true will provide backwards compatible defaults
+     // Otherwise, the user can provide their own config object to use

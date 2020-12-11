@@ -11,6 +11,9 @@
     "seed-data": "keystone-next --seed-data"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@keystone-next/admin-ui": "^5.0.0",
     "@keystone-next/auth": "^8.0.0",
     "@keystone-next/cloudinary": "^2.0.4",
